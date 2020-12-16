@@ -27,11 +27,12 @@ modules:
 
 - name: PyGObject
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
   sources:
   - type: archive
     url: https://files.pythonhosted.org/packages/3a/a7/de282a4aaedba59d60a895a7821e6497b39cbdfa94a352776ff45ffc6e6f/PyGObject-3.38.0.tar.gz
@@ -39,11 +40,12 @@ modules:
   
 - name: pycairo
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
   sources:
   - type: archive
     url: https://files.pythonhosted.org/packages/9d/6e/499d6a6db416eb3cdf0e57762a269908e4ab6638a75a90972afc34885b91/pycairo-1.20.0.tar.gz
@@ -52,11 +54,12 @@ modules:
 
 - name: wheel
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -65,11 +68,12 @@ modules:
   
 - name: xdg
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -80,11 +84,12 @@ modules:
 
 - name: six
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -93,8 +98,8 @@ modules:
 
 - name: Cython
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands: 
   - python3 setup.py build
   - python3 setup.py install --prefix=/app
@@ -106,8 +111,8 @@ modules:
 
 - name: rencode
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands: 
   - python3 setup.py build
   - python3 setup.py install --prefix=/app
@@ -118,11 +123,12 @@ modules:
 
 - name: pycparser
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -132,11 +138,12 @@ modules:
 
 - name: cffi
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -146,11 +153,12 @@ modules:
 
 - name: cryptography
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -159,11 +167,12 @@ modules:
 
 - name: pyopenssl
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -174,11 +183,12 @@ modules:
 
 - name: pyasn1
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -187,11 +197,12 @@ modules:
 
 - name: pyasn1-modules
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -200,11 +211,12 @@ modules:
 
 - name: attrs
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -215,11 +227,12 @@ modules:
 
 - name: service-identity
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -228,11 +241,12 @@ modules:
     
 - name: incremental
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -241,11 +255,12 @@ modules:
 
 - name: PyHamcrest
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -254,11 +269,12 @@ modules:
 
 - name: idna
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -269,11 +285,12 @@ modules:
 
 - name: hyperlink
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -282,11 +299,12 @@ modules:
 
 - name: docutils
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -295,11 +313,12 @@ modules:
 
 - name: mistune
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -310,11 +329,12 @@ modules:
 
 - name: m2r
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -323,12 +343,13 @@ modules:
 
 - name: setuptools
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
-  - /lib/python3.7/site-packages/setuptools.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
+  # - /lib/python3.7/site-packages/setuptools.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -337,12 +358,13 @@ modules:
 
 - name: setuptools-scm
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
-  - /lib/python3.7/site-packages/setuptools.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
+  # - /lib/python3.7/site-packages/setuptools.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -354,11 +376,12 @@ modules:
 
 - name: automat
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -367,11 +390,12 @@ modules:
 
 - name: constantly
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -380,12 +404,13 @@ modules:
 
 - name: zope.interface
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
-  - /lib/python3.7/site-packages/setuptools.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
+  # - /lib/python3.7/site-packages/setuptools.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -394,12 +419,13 @@ modules:
 
 - name: twisted
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
-  - /lib/python3.7/site-packages/setuptools.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
+  # - /lib/python3.7/site-packages/setuptools.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -410,11 +436,12 @@ modules:
 
 - name: pillow
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -423,11 +450,12 @@ modules:
 
 - name: chardet
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -436,11 +464,12 @@ modules:
 
 - name: setproctitle
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -450,12 +479,13 @@ modules:
 
 - name: pyxdg
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
 
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -464,11 +494,12 @@ modules:
 
 - name: MarkupSafe
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
 
   sources:
   - type: archive
@@ -477,45 +508,44 @@ modules:
 
 - name: mako
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
   sources:
   - type: archive
     url: https://files.pythonhosted.org/packages/72/89/402d2b4589e120ca76a6aed8fee906a0f5ae204b50e455edd36eda6e778d/Mako-1.1.3.tar.gz
     sha256: 8195c8c1400ceb53496064314c6736719c6f25e7479cd24c77be3d9361cddc27  
   
-
-
-
-
-- name: python-gexttext
+  
+- name: boost
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
+  - ./bootstrap.sh --prefix=/app --with-libraries=headers
+  - ./b2 install variant=release link=shared runtime-link=shared cxxflags="$CXXFLAGS" linkflags="$LDFLAGS" -j $FLATPAK_BUILDER_N_JOBS
   sources:
   - type: archive
-    url: https://files.pythonhosted.org/packages/86/64/1475ff167cf6e6b6f9e50973900011cb53be8260010e3d016ad3778c4565/python-gettext-4.0.tar.gz
-    sha256: 626b501a51ac892fc3460cf550e60dca121f544eaa46eb69c90ce4682fc7ec02  
-  
+    url: https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2
+    sha256: 83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1
+
+- name: libtorrent
+  buildsystem: cmake-ninja
+  builddir: true
+  config-opts:
+  - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+  sources:
+  - type: archive
+    url: https://github.com/arvidn/libtorrent/releases/download/v1.2.11/libtorrent-rasterbar-1.2.11.tar.gz
+    sha256: cb6a9cc3c9a9e485174394baa82744cef8415d23a357f5721dcc9ee7622c4efb
 
 - name: deluge
   buildsystem: simple
-  ensure-writable:
-  - /lib/python3.7/site-packages/easy-install.pth
-  - /lib/python3.7/site-packages/setuptools.pth  
-#  - chmod +rwx '/app/lib/python3.7/site-packages/easy-install.pth'
-#  - pip3 install setproctitle --prefix=/app
-
   build-commands:
-  - python3 setup.py build 
-  - python3 setup.py install --prefix=/app
-#  - chmod +x /app/bin/winetricks
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
   sources:
   - type: archive
     url: https://ftp.osuosl.org/pub/deluge/source/2.0/deluge-2.0.3.tar.xz
