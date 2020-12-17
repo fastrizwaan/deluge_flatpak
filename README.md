@@ -7,8 +7,8 @@ wanna test this:
 
 ```
 flatpak-builder --force-clean build-dir com.gitlab.Deluge.yaml ; #this support pip3 install in flatpak sandbox using flatpak-builder
+flatpak-builder --user --install --force-clean build-dir com.gitlab.Deluge.yaml
 
-flatpak-builder --user --install --force-clean build-dir deluge.yaml 
 flatpak run com.gitlab.Deluge
 ```
 
