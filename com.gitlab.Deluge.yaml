@@ -1,0 +1,45 @@
+#com.gitlab.deluge.yaml
+
+## build
+#flatpak-builder --force-clean build-dir com.gitlab.deluge.yaml 
+
+## install
+#flatpak-builder --install --user  --force-clean build-dir com.gitlab.deluge.yaml 
+
+## run
+#flatpak run com.gitlab.Deluge 
+
+
+app-id: com.gitlab.Deluge
+runtime: org.gnome.Platform
+runtime-version: '3.36'
+sdk: org.gnome.Sdk
+command: deluge
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=all
+  - --share=network
+  - --allow=multiarch
+  - --allow=devel
+  - --talk-name=org.freedesktop.Notifications
+  - --filesystem=xdg-desktop
+  - --filesystem=~/.fonts
+  - --filesystem=xdg-download
+  - --filesystem=home
+  - --env=PATH=/app/bin:/app/runners/bin:/usr/bin
+
+
+modules:
+- name: deluge
+  buildsystem: simple
+  build-options:
+  # This allows pip3 to work in flatpak-builder
+    build-args:
+    - --share=network
+    
+  build-commands:
+  - pip3 install deluge --prefix=/app --root=/
+
