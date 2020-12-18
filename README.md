@@ -7,7 +7,7 @@ deluge-gtk, runs and downloads torrents!
 ```
 git clone https://github.com/fastrizwaan/deluge_flatpak.git
 cd deluge_flatpak
-cp short-quick-yaml/com.github.deluge.yaml .
+cp big-source-based-yaml/com.github.deluge.yaml .
 
 # build
 flatpak-builder --force-clean build-dir com.github.deluge.yaml
