@@ -1,8 +1,16 @@
+# flatpak-builder --force-clean build-dir com.github.deluge.yaml 
+# flatpak-builder --user --install --force-clean build-dir com.github.deluge.yaml
+# flatpak run --command=bash com.github.deluge ;#testing
+# /app/bin/deluge-gtk -L debug
+
+
 app-id: com.github.deluge
 runtime: org.gnome.Platform
 runtime-version: '3.38'
 sdk: org.gnome.Sdk
 command: deluge-gtk
+#rename-icon: deluge
+#copy-icon: true
 
 finish-args:
   - --socket=wayland
@@ -225,16 +233,16 @@ modules:
     url: https://files.pythonhosted.org/packages/b7/bf/ecacc60e63d65f7449457bbd8163141c51c4af7aeff7958ec061b8faf915/hyperlink-20.0.1.tar.gz
     sha256: 47fcc7cd339c6cb2444463ec3277bdcfe142c8b1daf2160bdd52248deec815af
 
-- name: docutils
-  buildsystem: simple
-  build-commands:
-  - python3 setup.py build
-  - python3 setup.py egg_info
-  - python3 setup.py install --prefix=/app --root=/
-  sources:
-  - type: archive
-    url: https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz
-    sha256: c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc
+#- name: docutils
+#  buildsystem: simple
+#  build-commands:
+#  - python3 setup.py build
+#  - python3 setup.py egg_info
+#  - python3 setup.py install --prefix=/app --root=/
+#  sources:
+#  - type: archive
+#    url: https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz
+#    sha256: c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc
 
 - name: mistune
   buildsystem: simple
@@ -302,6 +310,17 @@ modules:
     url: https://files.pythonhosted.org/packages/95/f1/207a0a478c4bb34b1b49d5915e2db574cadc415c9ac3a7ef17e29b2e8951/constantly-15.1.0.tar.gz
     sha256: 586372eb92059873e29eba4f9dec8381541b4d3834660707faf8ba59146dfc35
 
+- name: zope.event
+  buildsystem: simple
+  build-commands:
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
+  sources:
+  - type: archive
+    url: https://files.pythonhosted.org/packages/30/00/94ed30bfec18edbabfcbd503fcf7482c5031b0fbbc9bc361f046cb79781c/zope.event-4.5.0.tar.gz
+    sha256: 5e76517f5b9b119acf37ca8819781db6c16ea433f7e2062c4afc2b6fbedb1330
+
 - name: zope.interface
   buildsystem: simple
   build-commands:
@@ -312,6 +331,17 @@ modules:
   - type: archive
     url: https://files.pythonhosted.org/packages/84/21/80cdc749908ebf2719a9063eddcc02b668fbc62d200c1f1a4d92aaaba76b/zope.interface-5.2.0.tar.gz
     sha256: 8251f06a77985a2729a8bdbefbae79ee78567dddc3acbd499b87e705ca59fe24
+
+- name: numpy
+  buildsystem: simple
+  build-commands:
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
+  sources:
+  - type: archive
+    url: https://files.pythonhosted.org/packages/c5/63/a48648ebc57711348420670bb074998f79828291f68aebfff1642be212ec/numpy-1.19.4.zip
+    sha256: 141ec3a3300ab89c7f2b0775289954d193cc8edb621ea05f99db9cb181530512
 
 - name: twisted
   buildsystem: simple
@@ -407,6 +437,8 @@ modules:
   - python3 setup.py build
   - python3 setup.py egg_info
   - python3 setup.py install --prefix=/app --root=/
+  #post-install:
+  #- cp /app/share/applications/deluge.desktop
   sources:
   - type: archive
     url: https://ftp.osuosl.org/pub/deluge/source/2.0/deluge-2.0.3.tar.xz
