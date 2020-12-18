@@ -1,0 +1,86 @@
+app-id: com.github.deluge
+runtime: org.gnome.Platform
+runtime-version: '3.38'
+sdk: org.gnome.Sdk
+command: deluge
+finish-args:
+  - --socket=wayland
+  - --socket=x11
+  - --share=ipc
+  - --share=network
+  - --device=dri
+  - --filesystem=host
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.PowerManagement
+  - --talk-name=org.gnome.SessionManager
+  - --own-name=org.kde.StatusNotifierItem-2-2
+  - --socket=pulseaudio
+  - --socket=system-bus
+  - --device=all
+  - --allow=multiarch
+  - --allow=devel
+  - --talk-name=org.freedesktop.Notifications
+  - --filesystem=xdg-desktop
+  - --filesystem=~/.fonts
+  - --filesystem=xdg-download
+  - --filesystem=home
+  - --env=PATH=/app/bin:/app/runners/bin:/usr/bin
+modules:
+- name: boost
+  buildsystem: simple
+  sources:
+  - type: archive
+    url: https://dl.bintray.com/boostorg/release/1.75.0/source/boost_1_75_0.tar.bz2
+    sha256: 953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb
+  build-commands:
+  - ./bootstrap.sh --prefix="${FLATPAK_DEST}" --with-python=python3 
+  - ./b2 stage  -j $FLATPAK_BUILDER_N_JOBS threading=multi link=shared
+  - ./b2 install --prefix="${FLATPAK_DEST}" threading=multi link=shared    
+  
+
+- name: libtorrent
+  buildsystem: cmake-ninja
+  builddir: true
+  config-opts:
+    - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    - -Dpython-bindings=ON 
+    - -Dboost-python-module-name=python  
+  sources:
+    - type: archive
+      url: https://github.com/arvidn/libtorrent/releases/download/v2.0.1/libtorrent-rasterbar-2.0.1.tar.gz
+      sha256: 7b39599bf602bf2f208f8f05bf2327576356a3c192175b3a4603262ede42ffd7
+
+- name: rencode
+  buildsystem: simple
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
+  build-commands: 
+  - python3 setup.py build
+  - python3 setup.py install --prefix=/app --root=/
+  sources:
+  - type: archive
+    url: https://files.pythonhosted.org/packages/75/41/14f6466c880334ff1fe2e0781e3c69a7fd5e524f8ae9bd3700091e0fefd8/rencode-1.0.5.tar.gz
+    sha256: fb66c92d35355d6098956204e663ddadf7f2cc8f64962846f67e1e1d036efc57
+
+- name: python-dbus
+  buildsystem: simple
+  #ensure-writable:
+  # - /lib/python3.7/site-packages/easy-install.pth
+  build-commands: 
+  - python3 setup.py build
+  - python3 setup.py install --prefix=/app --root=/
+  sources:
+  - type: archive
+    url: https://files.pythonhosted.org/packages/62/7e/d4fb56a1695fa65da0c8d3071855fa5408447b913c58c01933c2f81a269a/dbus-python-1.2.16.tar.gz
+    sha256: 11238f1d86c995d8aed2e22f04a1e3779f0d70e587caffeab4857f3c662ed5a4
+    
+- name: deluge
+  buildsystem: simple
+  build-options:
+  # This allows pip3 to work in flatpak-builder
+    build-args:
+    - --share=network
+    
+  build-commands:
+  - pip3 install deluge --prefix=/app --root=/
