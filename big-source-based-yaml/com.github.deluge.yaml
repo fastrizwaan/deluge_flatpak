@@ -439,7 +439,11 @@ modules:
   - python3 setup.py egg_info
   - python3 setup.py install --prefix=/app --root=/
   post-install:
-  - cp /app/share/applications/deluge.desktop /app/share/applications/com.github.deluge
+  - cp /app/share/icons/hicolor/128x128/apps/deluge.png /app/share/icons/hicolor/128x128/apps/com.github.deluge.png
+  - mkdir -p /app/share/applications
+  - cp deluge/ui/data/share/applications/deluge.desktop.in /app/share/applications/com.github.deluge.desktop
+  - sed 's/^_//g' -i /app/share/applications/com.github.deluge.desktop
+  - sed 's/Icon=deluge/Icon=com.github.deluge/g' -i /app/share/applications/com.github.deluge.desktop
   sources:
   - type: archive
     url: https://ftp.osuosl.org/pub/deluge/source/2.0/deluge-2.0.3.tar.xz
