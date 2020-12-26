@@ -26,6 +26,7 @@ finish-args:
   - --own-name=org.kde.StatusNotifierItem-2-2
   - --socket=pulseaudio
   - --socket=system-bus
+  - --socket=session-bus
   - --device=all
   - --allow=multiarch
   - --allow=devel
@@ -43,8 +44,8 @@ modules:
     sha256: 953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb
   build-commands:
   - ./bootstrap.sh --prefix="${FLATPAK_DEST}" --with-python=python3 
-  - ./b2 stage  -j $FLATPAK_BUILDER_N_JOBS threading=multi link=shared
-  - ./b2 install --prefix="${FLATPAK_DEST}" threading=multi link=shared
+  - ./b2 stage  -j $FLATPAK_BUILDER_N_JOBS variant=release threading=multi link=shared debug-symbols=off
+  - ./b2 install --prefix="${FLATPAK_DEST}" variant=release threading=multi link=shared debug-symbols=off
 
 - name: libtorrent
   buildsystem: cmake-ninja
@@ -233,16 +234,16 @@ modules:
     url: https://files.pythonhosted.org/packages/b7/bf/ecacc60e63d65f7449457bbd8163141c51c4af7aeff7958ec061b8faf915/hyperlink-20.0.1.tar.gz
     sha256: 47fcc7cd339c6cb2444463ec3277bdcfe142c8b1daf2160bdd52248deec815af
 
-#- name: docutils
-#  buildsystem: simple
-#  build-commands:
-#  - python3 setup.py build
-#  - python3 setup.py egg_info
-#  - python3 setup.py install --prefix=/app --root=/
-#  sources:
-#  - type: archive
-#    url: https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz
-#    sha256: c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc
+- name: docutils
+  buildsystem: simple
+  build-commands:
+  - python3 setup.py build
+  - python3 setup.py egg_info
+  - python3 setup.py install --prefix=/app --root=/
+  sources:
+  - type: archive
+    url: https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz
+    sha256: c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc
 
 - name: mistune
   buildsystem: simple
