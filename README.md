@@ -1,3 +1,4 @@
+### use xkill (alt+f2 xkill) to kill deluge, as quit kills the daemon not the gtk gui
 # deluge_flatpak
 Finally got boost python3 and libtorrent-raster python3 working in flatpak sandbox
 
