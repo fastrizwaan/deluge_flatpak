@@ -438,8 +438,8 @@ modules:
   - python3 setup.py build
   - python3 setup.py egg_info
   - python3 setup.py install --prefix=/app --root=/
-  #post-install:
-  #- cp /app/share/applications/deluge.desktop
+  post-install:
+  - cp /app/share/applications/deluge.desktop /app/share/applications/com.github.deluge
   sources:
   - type: archive
     url: https://ftp.osuosl.org/pub/deluge/source/2.0/deluge-2.0.3.tar.xz
