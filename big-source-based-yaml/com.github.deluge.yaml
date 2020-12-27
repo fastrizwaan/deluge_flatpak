@@ -14,22 +14,23 @@ command: deluge-gtk
 
 finish-args:
   - --socket=wayland
-  - --socket=x11
+  - --socket=fallback-x11
   - --share=ipc
   - --share=network
   - --device=dri
-  - --filesystem=host
+  
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.PowerManagement
   - --talk-name=org.gnome.SessionManager
   - --own-name=org.kde.StatusNotifierItem-2-2
-  - --socket=pulseaudio
-  - --socket=system-bus
-  - --socket=session-bus
-  - --device=all
-  - --allow=multiarch
-  - --allow=devel
+  #- --socket=pulseaudio
+  #- --socket=system-bus
+  #- --socket=session-bus
+  #- --filesystem=host
+  #- --allow=multiarch
+  #- --allow=devel
+  #- --device=all
   - --talk-name=org.freedesktop.Notifications
   - --filesystem=xdg-download
   - --env=PATH=/app/bin:/app/runners/bin:/usr/bin
