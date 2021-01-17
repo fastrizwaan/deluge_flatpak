@@ -1,10 +1,10 @@
-# flatpak-builder --force-clean build-dir com.github.deluge.yaml 
-# flatpak-builder --user --install --force-clean build-dir com.github.deluge.yaml
-# flatpak run --command=bash com.github.deluge ;#testing
+# flatpak-builder --force-clean build-dir io.github.deluge.yaml 
+# flatpak-builder --user --install --force-clean build-dir io.github.deluge.yaml
+# flatpak run --command=bash io.github.deluge ;#testing
 # /app/bin/deluge-gtk -L debug
 
 
-app-id: com.github.deluge
+app-id: io.github.deluge
 runtime: org.gnome.Platform
 runtime-version: '3.38'
 sdk: org.gnome.Sdk
@@ -24,13 +24,6 @@ finish-args:
   - --talk-name=org.freedesktop.PowerManagement
   - --talk-name=org.gnome.SessionManager
   - --own-name=org.kde.StatusNotifierItem-2-2
-  #- --socket=pulseaudio
-  #- --socket=system-bus
-  #- --socket=session-bus
-  #- --filesystem=host
-  #- --allow=multiarch
-  #- --allow=devel
-  #- --device=all
   - --talk-name=org.freedesktop.Notifications
   - --filesystem=xdg-download
   - --env=PATH=/app/bin:/app/runners/bin:/usr/bin
@@ -57,8 +50,8 @@ modules:
     - -Dboost-python-module-name=python
   sources:
     - type: archive
-      url: https://github.com/arvidn/libtorrent/releases/download/v2.0.1/libtorrent-rasterbar-2.0.1.tar.gz
-      sha256: 7b39599bf602bf2f208f8f05bf2327576356a3c192175b3a4603262ede42ffd7
+      url: https://github.com/arvidn/libtorrent/releases/download/v1.2.12/libtorrent-rasterbar-1.2.12.tar.gz
+      sha256: c3744ac9fa41f6e6ebf79538a2ea678df76a2cbbaf3ac6ae2c05455314e5cce8
 
 ## Python3 modules
 - name: wheel
@@ -440,12 +433,18 @@ modules:
   - python3 setup.py egg_info
   - python3 setup.py install --prefix=/app --root=/
   post-install:
-  - cp /app/share/icons/hicolor/128x128/apps/deluge.png /app/share/icons/hicolor/128x128/apps/com.github.deluge.png
+  - install -Dm644 /app/share/icons/hicolor/128x128/apps/deluge.png /app/share/icons/hicolor/128x128/apps/io.github.deluge.png
   - mkdir -p /app/share/applications
-  - cp deluge/ui/data/share/applications/deluge.desktop.in /app/share/applications/com.github.deluge.desktop
-  - sed 's/^_//g' -i /app/share/applications/com.github.deluge.desktop
-  - sed 's/Icon=deluge/Icon=com.github.deluge/g' -i /app/share/applications/com.github.deluge.desktop
+  - install -Dm644 deluge/ui/data/share/applications/deluge.desktop.in /app/share/applications/io.github.deluge.desktop
+  - sed 's/^_//g' -i /app/share/applications/io.github.deluge.desktop
+  - sed 's/Icon=deluge/Icon=io.github.deluge/g' -i /app/share/applications/io.github.deluge.desktop
+  
+  - install -Dm644 main_window.ui /app/lib/python3.8/site-packages/deluge/ui/gtk3/glade/main_window.ui
+  
   sources:
   - type: archive
     url: https://ftp.osuosl.org/pub/deluge/source/2.0/deluge-2.0.3.tar.xz
     sha256: 7e7ae8e6ca2a2bf0d487227cecf81e27332f0b92b567cc2bda38e47d859da891
+  
+  - type: file
+    path: main_window.ui
