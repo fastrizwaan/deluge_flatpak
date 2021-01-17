@@ -18,22 +18,22 @@ git clone https://github.com/fastrizwaan/deluge_flatpak.git
 cd deluge_flatpak
 
 # build
-flatpak-builder --force-clean build-dir io.github.deluge.yaml
+flatpak-builder --force-clean build-dir org.deluge-torrent.deluge.yaml
 
 # install 
-flatpak-builder --user --install --force-clean build-dir io.github.deluge.yaml
+flatpak-builder --user --install --force-clean build-dir org.deluge-torrent.deluge.yaml
 
 # run
-flatpak run io.github.deluge
+flatpak run org.deluge-torrent.deluge
 ```
 
 #### Build a flatpak bundle file from the above built repo:
 ```
-flatpak-builder --repo="repo" --force-clean "build" io.github.deluge.yaml
+flatpak-builder --repo="repo" --force-clean "build" org.deluge-torrent.deluge.yaml
 flatpak --user remote-add --no-gpg-verify "deluge" "repo"
-flatpak build-bundle "repo" "deluge.flatpak" io.github.deluge  --runtime-repo="https://flathub.org/repo/flathub.flatpakrepo"
+flatpak build-bundle "repo" "deluge.flatpak" org.deluge-torrent.deluge  --runtime-repo="https://flathub.org/repo/flathub.flatpakrepo"
 
 flatpak --user install deluge.flatpak
-flatpak run io.github.deluge
+flatpak run org.deluge-torrent.deluge
 ```
 
