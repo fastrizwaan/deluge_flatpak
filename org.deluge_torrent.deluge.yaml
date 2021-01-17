@@ -1,10 +1,10 @@
-# flatpak-builder --force-clean build-dir org.deluge-torrent.deluge.yaml 
-# flatpak-builder --user --install --force-clean build-dir org.deluge-torrent.deluge.yaml
-# flatpak run --command=bash org.deluge-torrent.deluge ;#testing
+# flatpak-builder --force-clean build-dir org.deluge_torrent.deluge.yaml 
+# flatpak-builder --user --install --force-clean build-dir org.deluge_torrent.deluge.yaml
+# flatpak run --command=bash org.deluge_torrent.deluge ;#testing
 # /app/bin/deluge-gtk -L debug
 
 
-app-id: org.deluge-torrent.deluge
+app-id: org.deluge_torrent.deluge
 runtime: org.gnome.Platform
 runtime-version: '3.38'
 sdk: org.gnome.Sdk
@@ -433,11 +433,11 @@ modules:
   - python3 setup.py egg_info
   - python3 setup.py install --prefix=/app --root=/
   post-install:
-  - install -Dm644 /app/share/icons/hicolor/128x128/apps/deluge.png /app/share/icons/hicolor/128x128/apps/org.deluge-torrent.deluge.png
+  - install -Dm644 /app/share/icons/hicolor/128x128/apps/deluge.png /app/share/icons/hicolor/128x128/apps/org.deluge_torrent.deluge.png
   - mkdir -p /app/share/applications
-  - install -Dm644 deluge/ui/data/share/applications/deluge.desktop.in /app/share/applications/org.deluge-torrent.deluge.desktop
-  - sed 's/^_//g' -i /app/share/applications/org.deluge-torrent.deluge.desktop
-  - sed 's/Icon=deluge/Icon=org.deluge-torrent.deluge/g' -i /app/share/applications/org.deluge-torrent.deluge.desktop
+  - install -Dm644 deluge/ui/data/share/applications/deluge.desktop.in /app/share/applications/org.deluge_torrent.deluge.desktop
+  - sed 's/^_//g' -i /app/share/applications/org.deluge_torrent.deluge.desktop
+  - sed 's/Icon=deluge/Icon=org.deluge_torrent.deluge/g' -i /app/share/applications/org.deluge_torrent.deluge.desktop
   
   - install -Dm644 main_window.ui /app/lib/python3.8/site-packages/deluge/ui/gtk3/glade/main_window.ui
   
