@@ -4,6 +4,7 @@ Finally got boost python3 and libtorrent-raster python3 working in flatpak sandb
 
 deluge-gtk, runs and downloads torrents!
 
+![](https://github.com/fastrizwaan/deluge_flatpak/blob/main/screenshots/1.png)
 
 #### install flathub repo and gnome sdk 3.38
 ```
