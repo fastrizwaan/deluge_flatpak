@@ -441,6 +441,9 @@ modules:
   
   - install -Dm644 main_window.ui /app/lib/python3.8/site-packages/deluge/ui/gtk3/glade/main_window.ui
   
+  - mkdir -p /app/share/metainfo
+  - install -Dm644 org.deluge_torrent.deluge.metainfo.xml /app/share/metainfo/
+  
   sources:
   - type: archive
     url: https://ftp.osuosl.org/pub/deluge/source/2.0/deluge-2.0.3.tar.xz
@@ -448,3 +451,6 @@ modules:
   
   - type: file
     path: main_window.ui
+    
+  - type: file
+    path: org.deluge_torrent.deluge.metainfo.xml
